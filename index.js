@@ -16,13 +16,13 @@
 //     That partition would lead to a score of 9 + 6 + 9 = 24, which is lower.
 function largestSum(numberArray,k){
   if(k===1){
-     return product(numberArray);
+     return productOfEntries(numberArray);
    }
  for(let i=1;i<=numberArray.length-k+1;i++){
-  return product(numberArray.slice(0,i))+largestSum(numberArray.slice(i),k-1);
+  return productOfEntries(numberArray.slice(0,i))+largestSum(numberArray.slice(i),k-1);
  }
 }
-function product(array){
+function productOfEntries(array){
   return array.reduce((a, b) => a * b);
 }
 console.log(largestSum([9,1,2,3,9],3)===64);
